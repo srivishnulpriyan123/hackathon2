@@ -1,0 +1,38 @@
+int maxProfit(int* prices, int pricesSize) 
+{
+    int small=0,index,c;
+    for(int i=0;i<pricesSize;i++)
+    {
+        if(prices[i]<small||small==0)
+        {
+            small=prices[i];
+            index=i;
+        }
+    }
+    int lar=0;
+    for(int i=index;i<pricesSize;i++)
+    {
+        if(prices[i]>lar)
+        {
+            lar=prices[i];
+            
+        }
+    }  
+    int sec_small=0;
+    for(int i=0;i<pricesSize;i++)
+    {
+        if((prices[i]<sec_small||sec_small==0)&&(prices[i]>small))
+        {
+            sec_small=prices[i];
+        }
+    }
+    int d=lar-sec_small;
+    if(c>d)
+    {
+        return c;
+    }
+    else
+    {
+        return d;
+    }
+}
